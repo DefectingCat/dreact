@@ -22,11 +22,10 @@ import { createElement, createTextElement, render } from '../../index';
 //   },
 // };
 
-// const testElement = createElement(
+// const testElement1 = createElement(
 //   'div',
-//   { id: 'my-div' },
-//   createElement('div', { id: 'my-p' }, createTextElement('This is a test!!!')),
-//   createElement('div', null, createTextElement('Hello world!'))
+//   null,
+//   createElement('h1', { id: 'hello' })
 // );
 
 /** @jsx createElement */
@@ -37,7 +36,4 @@ const testElement = (
   </div>
 );
 
-render(
-  testElement,
-  document.querySelector('#root') || document.createElement('div')
-);
+render(testElement, document.querySelector('#root'));
