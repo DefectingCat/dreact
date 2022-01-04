@@ -22,12 +22,15 @@ import { createElement, createTextElement, render } from '../../index';
 //   },
 // };
 
-const testElement = createElement(
-  'div',
-  { id: 'foo' },
-  createElement('div', { id: 'my-p' }, createTextElement('This is a test!!!')),
-  createElement('div', null, createTextElement('hello'))
-);
+// const testElement = createElement(
+//   'div',
+//   { id: 'my-div' },
+//   createElement('div', { id: 'my-p' }, createTextElement('This is a test!!!')),
+//   createElement('div', null, createTextElement('Hello world!'))
+// );
+
+/** @jsx createElement */
+const testElement = <div>123</div>;
 
 render(
   testElement,

@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: path.join(__dirname, 'src', 'index.js'),
   mode: 'production',
   devtool: 'source-map',
   devServer: {
@@ -11,30 +11,24 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
+      },
+      {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
-      // CSS, PostCSS, and Sass
       {
         test: /\.(scss|css)$/,
         use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
       },
-      // {
-      //   test: /\.css$/i,
-      //   use: ['style-loader', 'css-loader'],
-      // },
-      // {
-      //   test: /\.s[ac]ss$/i,
-      //   use: [
-      //     // 将 JS 字符串生成为 style 节点
-      //     'style-loader',
-      //     // 将 CSS 转化成 CommonJS 模块
-      //     'css-loader',
-      //     // 将 Sass 编译成 CSS
-      //     'sass-loader',
-      //   ],
-      // },
       {
         test: /\.html$/i,
         loader: 'html-loader',
