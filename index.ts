@@ -1,1 +1,1 @@
-export { createElement, createTextElement } from './src/Dreact';
+export { createElement, createTextElement, render } from './src/Dreact';
