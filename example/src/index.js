@@ -30,7 +30,12 @@ import { createElement, createTextElement, render } from '../../index';
 // );
 
 /** @jsx createElement */
-const testElement = <div>123</div>;
+const testElement = (
+  <div>
+    <h1 id="hello">Hello world!</h1>
+    <p>This is a test.</p>
+  </div>
+);
 
 render(
   testElement,

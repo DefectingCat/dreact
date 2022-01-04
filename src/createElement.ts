@@ -1,32 +1,12 @@
+type DreactNode = (DreactElement | TextElement)[];
+
 export interface DreactElement {
   type: 'div';
   props: {
-    children: (DreactElement | TextElement)[];
-    [key: string]: string | (DreactElement | TextElement)[];
+    children: DreactNode;
+    [key: string]: string | DreactNode;
   };
 }
-
-// let DreactElementExample = {
-//   type: 'div',
-//   props: {
-//     id: 'foo',
-//     children: [
-//       {
-//         type: 'p',
-//         props: {
-//           id: 'my-p',
-//           children: ['This is a test.'],
-//         },
-//       },
-//       {
-//         type: 'div',
-//         props: {
-//           children: ['Hello'],
-//         },
-//       },
-//     ],
-//   },
-// };
 
 /**
  * Create a Dreact element.
@@ -39,7 +19,7 @@ export interface DreactElement {
 function createElement(
   type: 'div',
   props: { [key: string]: string } | null,
-  ...children: (DreactElement | TextElement)[]
+  ...children: DreactNode
 ): DreactElement {
   return {
     type,
@@ -57,7 +37,7 @@ export interface TextElement {
   props: {
     nodeValue: string;
     children: [];
-    [key: string]: string | (DreactElement | TextElement)[];
+    [key: string]: string | DreactNode;
   };
 }
 
