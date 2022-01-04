@@ -2,7 +2,7 @@ import type { DreactElement, TextElement } from './createElement';
 
 function render(
   element: DreactElement | TextElement,
-  container: HTMLElement | Text
+  container: Element | Text
 ) {
   const dom =
     element.type === 'TEXT_ELEMENT'
