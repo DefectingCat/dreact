@@ -42,7 +42,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       // title: '这是一个测试页面',
-      template: 'index.html',
+      template: path.join(__dirname, 'src', 'index.html'),
     }),
   ],
   resolve: {
