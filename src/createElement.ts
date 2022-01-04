@@ -1,7 +1,7 @@
 type DreactNode = (DreactElement | TextElement)[];
 
 export interface DreactElement {
-  type: 'div';
+  type: string;
   props: {
     children: DreactNode;
     [key: string]: string | DreactNode;
@@ -17,7 +17,7 @@ export interface DreactElement {
  * @returns
  */
 function createElement(
-  type: 'div',
+  type: string,
   props: { [key: string]: string } | null,
   ...children: DreactNode
 ): DreactElement {
